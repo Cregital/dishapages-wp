@@ -80,14 +80,14 @@ function wpdisha_options_page() {
     <?php settings_fields( 'wpdisha_options_group' ); ?>
     <table class="form-table" role="presentation">
     	<tr>
-    	     <th scope="row"><label for="wpdisha_pages_url">Disha Pages URL</label></th>
+    	     <th scope="row"><label for="wpdisha_pages_url">Disha Pages Link</label></th>
     	<td>
         <input type="url" id="wpdisha_pages_url" name="wpdisha_pages[url]" value="<?php echo @$wpdisha_options['url']; ?>" placeholder="Enter your Disha pages URL" class="regular-text"/>
         <p class="description" id="tagline-description">E.g <kbd>https://ba.disha.page</kbd> or your custom domain</p>
       </td>
     </tr>
     <tr>
-    	<th scope="row"><label for="wpdisha_select">Display Page</label></th>
+    	<th scope="row"><label for="wpdisha_select">Select Page</label></th>
     	<td>
     		<select name="wpdisha_pages[page_id]" id="wpdisha_select">
                   <?php
@@ -119,7 +119,6 @@ function wpdisha_options_page() {
     </div>
   <?php
 } 
-
 
 
 add_filter( 'the_content', 'wpse6034_the_content' );

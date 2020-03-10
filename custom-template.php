@@ -14,14 +14,44 @@
 	$wpdisha_options = get_option( 'wpdisha_pages' );
 
 	$custom_classes = 'disha-blank-slate';
-	if ($wpdisha_options['disable_header'] == 1) {
-		$custom_classes .= " disabled-header";
-	}
+
+	if ($wpdisha_options['disable_header'] == 1) { $custom_classes .= " disabled-header"; }
+
+	$page = file_get_contents($wpdisha_options['url']);
+	$dom = new DOMDocument;
+	@$dom->loadHTML($page);
+
+	$info = json_decode(explode(";", $dom->textContent)[1], true);
+
+	$username = $info['username'];
+	$settings = json_decode($info['settings'], true);
+	$pageTitle = $settings['pageTitle'] ?? '';
+	$bio = $settings['bio'] ?? '';
+	$profileImage = $settings['profileImage'] ?? 'https//pages.disha.ng/opengraph.png';
 
 	?>
+
+	<meta name="description" content="<?php echo $bio ?>"/>
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="name" content="<?php echo $pageTitle; ?>"/>
+    <meta itemprop="description" content="<?php echo $bio; ?>"/>
+    <meta itemprop="image" content="<?php echo $profileImage ?>"/>
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="<?php echo $wpdisha_options['url']; ?>"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="<?php echo $pageTitle; ?>"/>
+    <meta property="og:description" content="<?php echo $bio; ?>"/>
+    <meta property="og:image" content="<?php echo $profileImage ?>"/>
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="<?php echo $pageTitle; ?>"/>
+    <meta name="twitter:description" content="<?php echo $bio; ?>"/>
+    <meta name="twitter:image" content="<?php echo $profileImage ?>"/>
+
 	<style type="text/css">
 		.disabled-header a.back { position: absolute; padding: 20px; mix-blend-mode: difference; color: #fff; font-family: Sans-Serif; font-size: 14px;font-weight: 700; }
 		.disabled-header a.back svg { stroke: #fff;vertical-align: -7px; margin-right: 10px; width: 20px; }
+		iframe { margin:0px !important; padding: !important; }
 	</style>
 </head>
 
