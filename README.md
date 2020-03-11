@@ -1,22 +1,30 @@
 # dishapages-wp
 
-=== Disha Pages WP ===
+=== Disha Pages for WordPress ===
 Contributors: cregital, oluwarufus
 Tags: disha, pages, one-pager, embed, landing, page builder
 Requires at least: 5.0
-Requires PHP: 7.3
+Requires PHP: 7.0
 Tested up to: 5.3.2
 Stable tag: 1.0
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A simple WordPress plugin to show your Disha page on Wordpress.
+A free simple plugin to show your Disha Page on Wordpress.
 
 == Description ==
 
-This creates a page template giving you a blank page so only the content of the page is displayed. Header and footer are totally empty. This is great for page builders (Beaver Builder, Divi, etc), landing pages and squeeze pages.
+[Disha Pages](https://disha.ng/pages/?utm_source=wordpress) helps you promote who you are and what you do in one link. Zero code / design thinking required. Add all your content on a single page website that looks great on phones, desktops and tablets. Promote your social profiles, links, Youtube videos, articles and photos. Connect your audience to all platforms easily with one simple link.
 
-== Screenshots ==
+With Disha’s free plugin you can easily:
 
-1. Shows you how to configure the plugin.
+- Display your Disha Pages (e.g `https://ea.disha.page`) on a Wordpress page of your choice e.g `https://evansakanno.com/links/`
+- Show/hide your website header or footer on the page. In the case of hidden header, a "Back to Home" button is added to the top of the page for easy navigation back to the rest of the site
+- The selected WordPress page is SEO optimized
+
+Learn more about [Disha](https://disha.ng/?utm_source=wordpress).
+
+[youtube https://www.youtube.com/watch?v=cCzKxAzucrk]
 
 == Installation ==
 
@@ -25,10 +33,20 @@ This creates a page template giving you a blank page so only the content of the 
 3. Enter your Disha Pages URL and select an existing page and save the settings.
 4. Visit the page you selected to ensure everything is good.
 
-== Other Notes ==
+== Frequently Asked Questions ==
 
-This plugin will load everything using an iframe on the page you selected and won't affect any other page of your website.
-== Upgrade Notice ==
+= Do I have to be on Disha Pro to use the plugin =
+
+No. This works for both Basic and Pro Disha Pages.
+
+
+== Screenshots ==
+
+1. Configure your Disha Pages settings.
+2. Your Disha Pages will be automatically shown on the page.
+
+== Changelog ==
 
 = 1.0.0 =
 * Initial Commit
+
