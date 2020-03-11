@@ -11,13 +11,13 @@
 
 	wp_head(); 
 
-	$wpdisha_options = get_option( 'wpdisha_pages' );
+	$wpdisha_pages_options = get_option( 'wpdisha_pages' );
 
-	$custom_classes = 'disha-blank-slate';
+	$custom_classes = 'disha-pages-template';
 
-	if ($wpdisha_options['disable_header'] == 1) { $custom_classes .= " disabled-header"; }
+	if ($wpdisha_pages_options['disable_header'] == 1) { $custom_classes .= " disabled-header"; }
 
-	$page = file_get_contents($wpdisha_options['url']);
+	$page = file_get_contents($wpdisha_pages_options['url']);
 	$dom = new DOMDocument;
 	@$dom->loadHTML($page);
 
@@ -59,7 +59,7 @@
 
 <?php
 
-if ($wpdisha_options['disable_header'] != 1) { get_header(); } else {
+if ($wpdisha_pages_options['disable_header'] != 1) { get_header(); } else {
 	echo '<a href="'. home_url() .'" class="back"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H6M12 5l-7 7 7 7"/></svg> Back to Home</a>';
 } ?>
 
@@ -75,7 +75,7 @@ if ($wpdisha_options['disable_header'] != 1) { get_header(); } else {
 
 <?php endwhile; ?>
 
-<?php if ($wpdisha_options['disable_footer'] != 1) { get_footer(); } ?>
+<?php if ($wpdisha_pages_options['disable_footer'] != 1) { get_footer(); } ?>
 
 <?php wp_footer(); ?>
 
