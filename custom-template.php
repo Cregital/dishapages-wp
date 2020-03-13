@@ -13,13 +13,27 @@
 
 	$wpdisha_pages_options = get_option( 'wpdisha_pages' );
 
-	$custom_classes = 'disha-pages-template';
+	$custom_classes = 'wpdisha-pages-template';
 
 	if ($wpdisha_pages_options['disable_header'] == 1) { $custom_classes .= " disabled-header"; }
 
-	$page = file_get_contents($wpdisha_pages_options['url']);
+	//SEO from Disha Pages
+	$pages_content = get_transient( 'wpdisha_pages_content' );
+ 
+	if( false === $pages_content ) {
+		
+	    // Transient expired, refresh the data
+	    $wpdisha_response = wp_remote_get( $wpdisha_pages_options['url'] );
+
+        if ( ! is_wp_error( $wpdisha_response )  && isset( $wpdisha_response['response']['code'] ) && 200 === $wpdisha_response['response']['code'] ) {
+        	$wpdisha_body = wp_remote_retrieve_body($wpdisha_response );
+	    	set_transient( 'wpdisha_pages_content', $wpdisha_body, 60*60 );
+        }
+	    
+	}
+
 	$dom = new DOMDocument;
-	@$dom->loadHTML($page);
+	@$dom->loadHTML($pages_content);
 
 	$info = json_decode(explode(";", $dom->textContent)[1], true);
 
@@ -27,7 +41,7 @@
 	$settings = json_decode($info['settings'], true);
 	$pageTitle = $settings['pageTitle'] ?? '';
 	$bio = $settings['bio'] ?? '';
-	$profileImage = $settings['profileImage'] ?? 'https//pages.disha.ng/opengraph.png';
+	$profileImage = $settings['profileImage'] ?? plugins_url( 'opengraph.png',  __FILE__ );
 
 	?>
 
