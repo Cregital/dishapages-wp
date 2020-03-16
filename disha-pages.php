@@ -28,8 +28,10 @@ if ( ! defined( 'ABSPATH' ) ) { // Avoid direct calls to this file and prevent f
 }
 
 
-function wpdisha_pages_activation_redirect( ) {
-    exit( wp_redirect( admin_url( 'admin.php?page=wpdisha' )  ) );
+function wpdisha_pages_activation_redirect($plugin) {
+  if( $plugin == plugin_basename( __FILE__ ) ) {
+      exit( wp_redirect( admin_url( 'admin.php?page=wpdisha' )  ) );
+  }
 }
 add_action( 'activated_plugin', 'wpdisha_pages_activation_redirect' );
 
