@@ -66,6 +66,8 @@
 		.disabled-header a.back { position: absolute; padding: 20px; mix-blend-mode: difference; color: #fff; font-family: Sans-Serif; font-size: 14px;font-weight: 700; }
 		.disabled-header a.back svg { stroke: #fff;vertical-align: -7px; margin-right: 10px; width: 20px; }
 		iframe { margin:0px !important; padding: !important; }
+		@media only screen and (max-width: 1024px) { .disabled-header a.back { display:none; } }
+
 	</style>
 </head>
 

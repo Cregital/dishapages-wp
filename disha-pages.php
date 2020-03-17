@@ -3,7 +3,7 @@
 Plugin Name: Disha Pages for WordPress
 Plugin URI: https://disha.ng/pages
 Description: Simple plugin to show your Disha page on Wordpress
-Version: 1.0
+Version: 1.0.1
 Author: Disha
 Author URI: https://disha.ng
 

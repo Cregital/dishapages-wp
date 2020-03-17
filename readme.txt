@@ -4,7 +4,7 @@ Tags: disha, pages, one-pager, embed, landing, page builder
 Requires at least: 5.0
 Requires PHP: 7.0
 Tested up to: 5.3.2
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -48,3 +48,5 @@ No. This works for both Basic and Pro Disha Pages.
 = 1.0.0 =
 * Initial Commit
 
+= 1.0.1 =
+* Fixed Responsiveness
